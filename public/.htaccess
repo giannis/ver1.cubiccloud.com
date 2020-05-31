@@ -40,13 +40,3 @@ SetOutputFilter DEFLATE
 <FilesMatch "\.(html|htm)$">
    Header set Cache-Control "max-age=43200"
 </FilesMatch>
-
-<IfModule mod_rewrite.c>
-RewriteEngine on
-RewriteBase /
-
-#Redirect for the www
-RewriteCond %{REMOTE_ADDR} !^127.0.0.1$
-RewriteCond %{HTTP_HOST} !^www\.cubiccloud\.com$ [NC]
-RewriteRule ^(.*)$ http://www.cubiccloud.com/$1 [R=301,L]
-</IfModule>
